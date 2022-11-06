@@ -11,13 +11,9 @@ I also built an independent frontend app using Streamlit that can be used to que
 
 ## About the project
 
-In 2011, a research was published in The American Naturalist, detailing how the colour and brightness of a certain species of Poison Frog are indicators for their toxicity levels. 
+I used data from a research conducted on how the brightness and colour contrasts in Strawberry Poison frogs can affect their toxicity levels. This model received input like the type of frog and its brightness measures and such, and outputs an estimated toxicity.
 
-Poisonous or toxic organisms often present bold colourations and flashy patterns instead of subdued tones that would promote camouflage. This might seem disandvantageous at first, as such organisms are more likely to be noticed by whatever species predate them. However, this is actually a defense mechanism - the bold colours serve as an advertisement for their toxicity, shouting out "Do not eat me!" to any potential predators. Thus even when noticed, predators will move past them as they have learnt that the bright colours and loud patterns mean the prey is unsuitable for consumption. 
-
-There have been theories in the past of how the colour of the frog may relate to its toxicity. A lot of these were disproved, with evidence to the contrary having also been found. This study focused on the inherent reflectance of the frog's colour, independent of who the viewer was, in relation to its toxicity levels. By this new metric, and with a wider range of colour morphs, the study found a strong correlation between the conspiciousness of a frog and its toxicity level. 
-
-This project hopes to build a model that will be able to predict the toxicity of the poison frog based on its colours and brightness alone. 
+If you're interested in learning more about the project and the rearch, I wrote a [short blog-post](https://blog.aaishamuhammad.co.za/posts/toxicity_proj/) explaining more about it as well as my methods for this project. 
 
 ## Dataset Information
 
@@ -31,7 +27,7 @@ There is no need to download the data to run this repository as the data files h
 
 Below there is a complete guide to installing and running both the ML Model and the Streamlit app locally. However, if you'd like to check out the final product first, this Streamlit app is connected to the cloud deployed model.
 
-__insert linkhere__
+[View deployed project](https://frogtoxicity.streamlit.app/)
 
 ## Files & Folders
 
@@ -53,53 +49,7 @@ There are mutliple files and folders provided in the main repository. Below, I o
 
 ## My work explained
 
-The working notebook `notebook.ipynb` contains everything that was done to obtain the model, from EDA to final model. Here's a summary of it all.
-
-- Basic data setup
-    
-    The data provided was organised for use in research and was not the most intuitive to work with. I renamed the columns according to the guide provided with the data. This [guide](/tree/main/data/README_for_Data_MaanCummings_2011_ AmNat52931_ByInd.txt) is committed along with the data in the `data` folder. 
-
-- Basic data analysis
-
-    I performed basic EDA to check for missing data and duplicate values, and to learn more about the different features.
-
-- Data correction
-
-    EDA revealed an abnormally large amount of missing data in some of the columns - up to 93% of that column contained `NaN` values. These three features were dropped. The rest of the data had a smattering of missing values - these were filled in with zeros. Lastly, EDA revealed several rows which were exact duplicates - these were dropped. 
-
-- Further data analysis
-
-    After doing the data correction, I split the data into train/validation/test sets, with a 80/10/10 ratio. Then I used the Pandas Profiler library to get a more in-depth look at all of the data. This allowed me to look at different metrics, correlation graphs, scatter plots, and more for different features just by changing values on a HTML interface.
-
-- Baseline model
-
-    After this I was ready to train my first model. There were two columns that contained normalised values of the other data columns. These were dropped as they would not realistically be available to a model in production. Once that was done, I trained a baseline model with LinearRegression.
-
-    The model (and all subsequent models until the very end) was trained on the training dataset and tested against the validation dataset. The metric of scoring used was `RMSE`.
-
-- Experiments
-
-    I conducted some experiments to try and improve the models performance. I tried dropping features which EDA indicated to have lower correlation, and tried some scaling with the numerical data. The best performance out of these was by using Standard Scaling and by dropping no features. 
-
-- Decision tree model
-
-    Next I trained a decision tree model with default parameters and data. This was used as a baseline for the decision tree models. Then I performed the same experiments as with the Linear Regression model, and found that no method of scaling nor dropping any features could improve the baseline. 
-
-    After that I hyper-tuned the models parameters with GridSearch CV. 
-
-- XGBoost model
-
-    Lastly I trained a XGBoost model on default parameters and data. This baseline was stored as well, and already performed better than previous models. I then conducted some experiments to refine this model, both using the previous experiments and some new ones tailered to XGBoost. Lastly, I set up a GridSearch that exhaustively tunes multiple XGBoost parameters. 
-
-    ___This is a time consuming and resource heavy process. If you do decide to run the notebook at any point, it might be better to skip the section which is performing this tuning.___
-
-    After GridSearch returned optimal parameters, some further digging had to be done to choose parameters that were not overfitted. After I did that I checked these parameters against validation data one last time, obtaining the lowest RMSE score so far at 0.018. This was chosen as the final model. 
-
-- Training the final model
-
-    Now that the best performing model had been selected, I trained it one last time, but this time on the combined train and validation data and scored it against the test data - hitherto untouched. This model was then saved using BentoML. 
-
-    ___In the notebook, you will notice the code for saving the model is commented out. This is because we will use `train.py` to train and save the model instead.___
+The working notebook `notebook.ipynb` contains everything that was done to obtain the model, from EDA to final model. There's explanations for mostly everything along the way. 
 
 ## Setup Prerequisites
 
