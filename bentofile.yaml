@@ -1,0 +1,10 @@
+service: "predict.py:svc"
+labels:
+  owner: AaishaM
+include:
+- "predict.py"
+python:
+  packages:
+  - xgboost
+  - sklearn
+  - pydantic
