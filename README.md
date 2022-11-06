@@ -21,7 +21,7 @@ The data I use throughout this project was sourced from [Google's Dataset search
 
 The [research](https://www.journals.uchicago.edu/doi/10.1086/663197) that uses and explains this data was published in [The American Naturalist](https://www.journals.uchicago.edu/toc/an/current) Volume 179, in January of 2012. 
 
-There is no need to download the data to run this repository as the data files have been supplied in the [data folder](/tree/main/data).
+There is no need to download the data to run this repository as the data files have been supplied in the [data folder](https://github.com/AaishaMuhammad/mlzoomcamp_midterm/tree/main/data).
 
 ## Ready-to-use cloud deploy
 
