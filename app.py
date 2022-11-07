@@ -182,7 +182,7 @@ viewer_ids = {
 bg_ids = {
     'Bark Litter': 'bark',
     'Lobster-claw Flowers': 'heli',
-    'Leaf Litter:': 'leaf'
+    'Leaf Litter': 'leaf'
 }
 
 noise_ids = {
