@@ -1,6 +1,7 @@
 bentoml==1.0.7
 matplotlib==3.5.3
 numpy==1.23.2
+notebook==6.4.12
 pandas==1.4.4
 pydantic==1.10.2
 pandas-profiling==3.4.0
