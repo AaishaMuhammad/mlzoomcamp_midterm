@@ -27,6 +27,8 @@ There is no need to download the data to run this repository as the data files h
 
 Below there is a complete guide to installing and running both the ML Model and the Streamlit app locally. However, if you'd like to check out the final product first, this Streamlit app is connected to the cloud deployed model.
 
+Just in case the cloud deploy is not live for any reason, the `proof` folder contains screenshots and a video recording of both the Streamlit deploy and the command line testing script. 
+
 [View deployed project](https://frogtoxicity.streamlit.app/)
 
 ## Files & Folders
