@@ -29,7 +29,7 @@ Below there is a complete guide to installing and running both the ML Model and 
 
 Just in case the cloud deploy is not live for any reason, the `proof` folder contains screenshots and a video recording of both the Streamlit deploy and the command line testing script. 
 
-[View deployed project](https://frogtoxicity.streamlit.app/)
+[View deployed project](https://poisonfrog.streamlit.app/)
 
 ## Files & Folders
 
